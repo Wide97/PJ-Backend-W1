@@ -1,24 +1,21 @@
 package ElementoMultimediale;
 
-public class Immagine extends ElementoMultimediale{
+public class Immagine extends ElementoMultimediale {
     private int luminosita;
-
 
     public Immagine(String titolo, int luminosita) {
         super(titolo);
-        setLuminosita(luminosita);
-    }
-
-    public int getLuminosita () {
-        return luminosita;
-    }
-
-    public void setLuminosita (int luminosita) {
-        if (luminosita <= 0) {
-            throw new IllegalArgumentException("La luminosità deve essere un valore positivo");
-        }
         this.luminosita = luminosita;
+    }
 
+    public void aumentaLuminosita() {
+        luminosita++;
+    }
+
+    public void diminuisciLuminosita() {
+        if (luminosita > 1) {
+            luminosita--;
+        }
     }
 
     public void show() {
@@ -30,3 +27,5 @@ public class Immagine extends ElementoMultimediale{
         show();
     }
 }
+
+

@@ -1,64 +1,43 @@
 package ElementoMultimediale;
 
-public class Video extends ElementoMultimediale{
+public class Video extends ElementoMultimediale implements Riproducibile {
+    private int durata;
     private int volume;
     private int luminosita;
-    private int durata;
-
-
 
     public Video(String titolo, int durata, int volume, int luminosita) {
         super(titolo);
         this.durata = durata;
-        setVolume(volume);
-        setLuminosita(luminosita);
-
-    }
-
-    public int getVolume () {
-        return volume;
-    }
-
-    public void setVolume (int volume) {
-        if (volume <= 0) {
-            throw new IllegalArgumentException("Il volume deve essere un valore positivo");
-        }
         this.volume = volume;
-    }
-
-    public int getLuminosita () {
-        return luminosita;
-    }
-
-    public void setLuminosita (int luminosita) {
-        if (luminosita <= 0) {
-            throw new IllegalArgumentException("La luminosità deve essere un valore positivo");
-        }
         this.luminosita = luminosita;
     }
 
-    public void aumentaLuminosita () {
-        luminosita ++;
+    public void alzaVolume() {
+        volume++;
     }
 
-    public int getDurata() {
-        return durata;
-    }
-
-
-    @Override
-    public void esegui () {
-        play();
-    }
-    public void play () {
-        for (int i=0; i<getDurata(); i++) {
-            System.out.println(getTitolo() + "!" + "!".repeat(volume) + "*".repeat(luminosita));
-            long endTime = System.currentTimeMillis() + 1000;
-            while (System.currentTimeMillis() < endTime){
-
-            }
+    public void abbassaVolume() {
+        if (volume > 1) {
+            volume--;
         }
     }
 
+    public void aumentaLuminosita() {
+        luminosita++;
+    }
+
+    @Override
+    public void play() {
+        for (int i = 0; i < durata; i++) {
+            System.out.println(getTitolo() + "!" + "!".repeat(volume) + "*".repeat(luminosita));
+        }
+    }
+
+    @Override
+    public void esegui() {
+        play();
+    }
 }
+
+
 
