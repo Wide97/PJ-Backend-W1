@@ -3,10 +3,13 @@ package ElementoMultimediale;
 public class Video extends ElementoMultimediale{
     private int volume;
     private int luminosita;
+    private int durata;
+
 
 
     public Video(String titolo, int durata, int volume, int luminosita) {
-        super(titolo, durata);
+        super(titolo);
+        this.durata = durata;
         setVolume(volume);
         setLuminosita(luminosita);
 
@@ -38,7 +41,15 @@ public class Video extends ElementoMultimediale{
         luminosita ++;
     }
 
+    public int getDurata() {
+        return durata;
+    }
+
+
     @Override
+    public void esegui () {
+        play();
+    }
     public void play () {
         for (int i=0; i<getDurata(); i++) {
             System.out.println(getTitolo() + "!" + "!".repeat(volume) + "*".repeat(luminosita));

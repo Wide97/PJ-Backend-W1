@@ -2,14 +2,17 @@ package ElementoMultimediale;
 
 public class RegistrazioneAudio extends ElementoMultimediale{
     private int volume;
+    private int durata;
 
-    public RegistrazioneAudio (String titolo, int durata, int volume) {
-        super(titolo, durata);
+    public RegistrazioneAudio (String titolo, int volume, int durata) {
+        super(titolo);
+        this.durata = durata;
         setVolume(volume);
 
     }
 
     public int getVolume (){
+
         return volume;
     }
 
@@ -23,6 +26,7 @@ public class RegistrazioneAudio extends ElementoMultimediale{
     }
 
     public void  alzaVolume () {
+
         volume++;
     }
 
@@ -32,15 +36,25 @@ public class RegistrazioneAudio extends ElementoMultimediale{
         }
     }
 
-    @Override
-    public void play() {
-        for (int i =0 ; i < getDurata(); i ++) {
-            System.out.println(getTitolo() + "!" + "!".repeat(volume));
-            long endTime = System.currentTimeMillis() + 1000;
-            while (System.currentTimeMillis()< endTime) {
+    public int getDurata() {
+        return durata;
+    }
 
+
+    @Override
+    public void esegui() {
+        play();
+    }
+
+        public void play() {
+            for (int i = 0; i < durata; i++) {
+                System.out.println(getTitolo() + "!" + "!".repeat(volume));
+                long endTime = System.currentTimeMillis() + 1000;
+                while (System.currentTimeMillis() < endTime) {
+
+                }
             }
         }
     }
 
-}
+

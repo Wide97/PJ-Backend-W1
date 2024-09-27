@@ -17,9 +17,9 @@ public class PlayerMusicale {
 
     }
 
-    public void  riproduciPlaylist () {
+    public void riproduciPlaylist () {
         for (ElementoMultimediale elemento : playlist) {
-            elemento.play();
+            elemento.esegui();
         }
     }
 }
